@@ -1,0 +1,86 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage{centernot}
+\usepackage[includeheadfoot,margin=0.5in]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+
+\fancyhf{}
+\lhead{}
+\rhead{}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper}
+
+\theoremstyle{definition}
+\newtheorem{pb}{}
+
+% Commands:
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}[1]{\text{ and }}
+\newcommand{\tor}[1]{\text{ or }}
+
+\title{\vspace{-2cm} Math 322 Office Hours Recap}
+\date{September 11, 2024}
+\begin{document}
+    \maketitle
+    
+    \textbf{Proofs Involving Quadratic Polynomials}
+
+    \begin{enumerate}
+        \item \(f: \mathbb{R} \to \mathbb{R}, \; f(x) = x^2 + ax + b\), is \(f\) injective? \newline
+        \textbf{Solution.} No. To see this, notice that \(f(x)\) is a parabola, so if it is centered at \(x = x_0\), then \(f(x_0 + t) = f(x_0 - t), \forall t\).
+        To prove that \(f\) is not injective, we can rewrite the function;
+        \begin{align*}
+            f(x) = x^2 + ax + b = x^2 + ax + \frac{a^2}{4} - \frac{a^2}{4} + b = \left(x+\frac{a}{2}\right)^2 + b - \frac{a^2}{4}
+        \end{align*}
+        This gives us our \(x_0 = -\frac{a}{2}\), so that
+        \begin{align*}
+            f\left(-\frac{a}{2} + 1\right) = \left(-\frac{a}{2}+\frac{a}{2} + 1\right)^2 + b - \frac{a^2}{4} = 1 + b - \frac{a^2}{4} = \left(-\frac{a}{2}+\frac{a}{2} - 1\right)^2 + b - \frac{a^2}{4}
+            = f\left(-\frac{a}{2} - 1\right)
+        \end{align*}
+
+        \item Let \(f\) be the same as above, is it surjective? \newline
+        \textbf{Solution.} No. To see this, recognize the graph of the parabola is bounded below.
+        To prove that \(f\) is bounded below we once again rewrite it in the form \(\left(x+\frac{a}{2}\right)^2 + b - \frac{a^2}{4}\), then
+        \begin{align*}
+            \forall x, \; \left(x+\frac{a}{2}\right)^2 \geq 0 \implies f(x) \geq b - \frac{a^2}{4}
+        \end{align*}
+        So choose \(y = b - \frac{a^2}{4} - 1\), since \(y < b - \frac{a^2}{4} \leq f(x)\) the preimage of \(y\) is empty so that \(f\) is not surjective.
+
+        \item Is \(f\) bounded above? \newline
+        \textbf{Solution.} No. To see this, recognize that the graph of \(f\) is a parabola which is unbounded.
+        To prove that \(f\) is unbounded, let \(M \in \mathbb{R}_{\geq 0}\), the direct way to approach this is to work backwards given the desired inequality,
+        \begin{align*}
+            x^2 + ax + b &\geq M \\
+            x(x + a) &\geq M - b \; \text{Notice here we can assume that } x\geq \max\set{\abs{a},1}\\
+            x + a &\geq M - b\\
+            x &= \max\set{M-b+a,1,\abs{a}}
+        \end{align*}
+        With this choice of \(x\), we can finish the proof:
+        \begin{align*}
+            &x(x+a) \geq x + a = M - b \implies x^2 + ax + b \geq M
+        \end{align*}
+        Alternatively, we can use the same approach as before and write \(f(x) = \left(x+\frac{a}{2}\right)^2 + b - \frac{a^2}{4}\), and once again try to solve for \(x\),
+        \begin{align*}
+            \left(x+\frac{a}{2}\right)^2 + b - \frac{a^2}{4} &\geq M \\
+            \left(x+\frac{a}{2}\right)^2 &\geq M - b + \frac{a^2}{4} \\
+        \end{align*}
+        Here we notice if the right hand side is negative, then we can choose any \(x\), so assume its positive,
+        \begin{align*}
+            x + \frac{a}{2} &\geq \sqrt{M - b + \frac{a^2}{4}} \\
+            x &\geq \sqrt{M - b + \frac{a^2}{4}} - \frac{a}{2}
+        \end{align*}
+        So just choose \(x = \sqrt{M - b + \frac{a^2}{4}} - \frac{a}{2}\).
+    \end{enumerate}
+
+    \textbf{Remark.} The 'completing the square' trick, where we rewrite the parabola was highly useful in these proofs.
+    Intuitively, we can think of this as a change of coordinates, or variable substitution \(x \to u\) where the parabola is centered around \(u\). The reason this
+    is easier is because most of the behaviour we were interested in was reliant on the paint the parabola was centered around, so choosing convenient coordinates
+    which allow us to more easily describe this behaviour makes our life much easier. Analogous techniques are common in math, where often there is a
+    convenient choice of basis or generators which makes computations easier.
+\end{document}
