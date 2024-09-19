@@ -1,0 +1,73 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage{centernot}
+\usepackage[includeheadfoot,margin=0.5in]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+
+\fancyhf{}
+\lhead{}
+\rhead{}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper}
+
+\theoremstyle{definition}
+\newtheorem{pb}{}
+
+% Commands:
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}[1]{\text{ and }}
+\newcommand{\tor}[1]{\text{ or }}
+
+\title{\vspace{-2cm} Math 322 Office Hours Recap}
+\date{September 18, 2024}
+\begin{document}
+    \maketitle
+
+    \textbf{Semi-Group Homework Problem}
+
+    \begin{enumerate}
+        \item Jacobson 1.2.11 Show that in a group, the equations \(ax = b\) and \(ya = b\) are solveable. Conversely show that any semigroup with this property is a group.
+
+        \textbf{Solution.} Since this is a homework problem, we didn't go over it in full detail. The forward direction is relatively simple. To show the converse,
+        we need to show existence of identity and inverses. Identity must be shown first. Notice that the equation \(ax = a\) gives us a right identity for free,
+        we want to show this is an identity in general. In order to do so we want to show that \(x\) is a identity on the entire semigroup, and is two sided. The only way
+        we can introduce more information into our equation \(ax = a\) is by taking a product with some other equation, but since solveability gives us uniqueness, thsi should be enough.
+        We let \(b \in G\) be arbitrary, and define \(c = xb\) (since we want to take a product where \(x\) is on the right side of \(a\) we must put it on the left side of \(b\)).
+        This gives us that \(ab = (ax)b = a(xb) = ac\), so unique solveability of the equation \(ay = ab\) implies that \(b = c\), making \(x\) a left inverse for the entire
+        set since \(b\) was arbitrary. Hopefully this gives some insight into how to finish the problem, as the solution to showing \(x\) is a right identity is almost identical,
+        and existence of inverses is easier.
+    \end{enumerate}
+
+    \textbf{Linear Algebra and Equivalence Relation Exam Problem}
+    \begin{enumerate}
+        \item Consider \(X = \set{(v_1,v_2) \vert v_i \in \mathbb{R}^2}\), and equivalence relation \((\mathbf{v}_1,\mathbf{v}_2) \sim (\mathbf{u}_1,\mathbf{u}_2) \iff \exists A, \; A\mathbf{v}_i = \mathbf{u}_i\), where
+        \(A\) is invertible. Describe the equivalence classes of \(X/\sim\).
+
+        \textbf{Solution.} The equivalence classes are subspaces of \(\mathbb{R}^2\), proof being:
+        \begin{align*}
+            A\mathbf{v}_i = \mathbf{u}_i \iff A\begin{bmatrix} \mathbf{v}_1 \mathbf{v}_2 \end{bmatrix} = \begin{bmatrix} \mathbf{u}_1 \mathbf{u}_2 \end{bmatrix}
+        \end{align*}
+        But multiplying by an invertible matrix on the left is equivalent to taking row operations, so \((\mathbf{v}_1,\mathbf{v}_2) \sim (\mathbf{u}_1,\mathbf{u}_2)\) is equivalent to
+        \begin{align*}
+            \text{rowsp}\begin{bmatrix} \mathbf{v}_1 \mathbf{v}_2 \end{bmatrix} = \text{rowsp}\begin{bmatrix} \mathbf{u}_1 \mathbf{u}_2 \end{bmatrix}
+        \end{align*}
+        So two pairs are similar when they have the same rowspace. This means that the equivalence classes are all subspaces of \(\mathbb{R}^2\)
+    \end{enumerate}
+
+    \textbf{Herstein Challenge Problem}
+    \begin{enumerate}
+        \item Herstein 2.5.26 If an abelian group \(G\) has subgroups \(M, N\) of order \(m, n\) respectively, show that it has a subgroup of order \(\text{lcm}[m,n]\)
+        
+        There are two approaches for this problem, the first is to look at \(\# MN\) (which is a subgroup since \(G\) is abelian). \emph{hint if you are stuck}: use Herstein Theorem \(2.5.1\).
+
+        The second is to prove and use \emph{Cauchy's Theorem}, that \(p \vert \# G \implies \exists g \in G, \; o(g) = p\). \emph{hint if you are stuck}: Use quotient groups and induction.
+
+
+    \end{enumerate}
+\end{document}
