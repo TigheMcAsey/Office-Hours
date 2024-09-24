@@ -1,0 +1,66 @@
+\documentclass[10.5pt]{article}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage{centernot}
+\usepackage[includeheadfoot,margin=0.5in]{geometry} % For page dimensions
+\usepackage{fancyhdr}
+\usepackage{enumerate} % For custom lists
+
+\fancyhf{}
+\lhead{}
+\rhead{}
+\pagestyle{fancy}
+
+% Page dimensions
+\geometry{a4paper}
+
+\theoremstyle{definition}
+\newtheorem{pb}{}
+
+% Commands:
+
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lvert\lvert#1\rvert\rvert}
+\newcommand{\tand}[1]{\text{ and }}
+\newcommand{\tor}[1]{\text{ or }}
+
+\title{\vspace{-2cm} Math 322 Office Hours Recap}
+\date{September 23, 2024}
+\begin{document}
+    \maketitle
+
+    Today there were just a few clarifications of definitions, examples and homework as well as looking at some exercises.
+    None went in to great detail. o I will just share an exercise, as well as some useful practice materials.\newline
+
+    \textbf{Proving a Sufficiently Small Group is Abelian} \newline 
+    (This is a problem from Dummit and Foote but I dont like that book, a nearly identical problem is in Lang; Lang pdf free online with ubc) I don't recommend using Lang as a primary reference at this point
+    because it is quite advanced, but it has some interesting topics and exercises.
+    \begin{enumerate}
+        \item Show that every group of order \(5\) is abelian
+        
+        \textbf{Solution.} \(\exists a,b \in G\), such that \(ab \neq ba\). This implies \(a,b\) distinct and not 'powers' of one another, furthermore
+        \(a,b\) cannot both have degree 2, else \(ab = ba\) so that we have \(a,b,a^{-1},ab,ba,1\) are six distinct elements.
+    \end{enumerate}
+
+    \textbf{Exercises for Students} (maybe we can discuss these on Monday or Wednesday)
+
+    The previous exercise from Lang is quite simple with Lagranges theorem, here are a few exercises to prove it in a more insightful way
+    \begin{enumerate}
+        \item Let \(G\) be a group, \(H\) a subgroup. Prove that the orbits of \(H\) (i.e. cosets) partition \(G\), i.e. show \(x \in xH\), and
+        \(y \in xH \implies xH = yH\).
+
+        \item show that for each coset \(xH\), \(\# xH = \# H\).
+        
+        \item Use the result of the previous two exercises to prove Lagrange's theorem: \(\# H | \# G\)
+        
+        \item Apply Lagranges theorem to show that every group of prime order \(p\) is abelian, and hence every group of order \(5\) is abelian.
+        How many non-isomorphic groups of order \(5\) are there? What about order \(p\)?
+    \end{enumerate}
+
+    Here are some additional textbook exercises I can personally suggest:
+    \begin{enumerate}
+        \item Lang, Algebra, Exercises 1.1-1.4 (Yes 1.1 is just the question from earlier)
+        \item Herstein, Topics in Algebra, Chapters 2.3-2.5 all exercises
+    \end{enumerate}
+
+\end{document}
